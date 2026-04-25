@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TrendingUp } from "lucide-react";
+import { TrendingUp, ArrowUpRight } from "lucide-react";
+import { InstagramIcon } from "@/components/icons/InstagramIcon";
 import { cases } from "@/lib/data";
 
 export default function Cases() {
@@ -59,6 +60,20 @@ export default function Cases() {
                     <div className="text-xs text-muted tracking-wider uppercase mt-2">
                       {c.metricLabel}
                     </div>
+                    {c.instagram && (
+                      <a
+                        href={c.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-5 inline-flex items-center gap-2 text-xs text-muted hover:text-accent transition-colors group/ig"
+                      >
+                        <InstagramIcon className="size-3.5" />
+                        <span className="font-mono">
+                          @{c.instagram.split("/").filter(Boolean).pop()}
+                        </span>
+                        <ArrowUpRight className="size-3 transition-transform group-hover/ig:-translate-y-0.5 group-hover/ig:translate-x-0.5" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

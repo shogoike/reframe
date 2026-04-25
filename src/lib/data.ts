@@ -159,13 +159,23 @@ export const plans = [
   },
 ];
 
-export const cases = [
+type CaseStudy = {
+  tag: string;
+  title: string;
+  metric: string;
+  metricLabel: string;
+  body: string;
+  instagram?: string;
+};
+
+export const cases: CaseStudy[] = [
   {
     tag: "代表アカウント",
     title: "かずまパパ",
     metric: "5,000",
     metricLabel: "リスト獲得",
     body: "ゼロから運用開始し、TikTok経由で5,000リストを獲得。集客チャネルを内製化しました。",
+    instagram: "https://www.instagram.com/kazumaica/",
   },
   {
     tag: "バイリンガル家族",
@@ -180,6 +190,7 @@ export const cases = [
     metric: "155K",
     metricLabel: "フォロワー",
     body: "1.8万人 → 15.5万人。インバウンド向けアカウントを爆発的に成長させました。",
+    instagram: "https://www.instagram.com/travel.japan_together/",
   },
   {
     tag: "個人ブランディング",
