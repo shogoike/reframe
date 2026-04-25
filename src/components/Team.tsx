@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import { InstagramIcon } from "@/components/icons/InstagramIcon";
 import { team } from "@/lib/data";
 
 export default function Team() {
@@ -48,6 +50,20 @@ export default function Team() {
                   {m.nameEn}
                 </div>
                 <p className="text-sm text-muted leading-relaxed">{m.bio}</p>
+                {m.instagram && (
+                  <a
+                    href={m.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center gap-2 text-sm text-muted hover:text-accent transition-colors group/link"
+                  >
+                    <InstagramIcon className="size-4" />
+                    <span className="font-mono text-xs">
+                      @{m.instagram.split("/").filter(Boolean).pop()}
+                    </span>
+                    <ArrowUpRight className="size-3.5 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}

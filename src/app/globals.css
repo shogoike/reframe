@@ -40,6 +40,13 @@ body {
   letter-spacing: 0.01em;
 }
 
+/* Display headings: heavier weight for Japanese fallback (Noto Sans JP Black 900),
+   while Anton (Latin) keeps its native 400 — synthesis disabled to avoid synthetic bold. */
+.font-display {
+  font-weight: 900;
+  font-synthesis: none;
+}
+
 ::selection {
   background: var(--accent);
   color: #fff;

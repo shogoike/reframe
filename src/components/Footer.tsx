@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { InstagramIcon } from "@/components/icons/InstagramIcon";
 import { company, navItems } from "@/lib/data";
 
 const legalLinks = [
@@ -35,6 +36,18 @@ export default function Footer() {
                 {company.email}
               </a>
             </p>
+
+            <div className="mt-6 flex items-center gap-3">
+              <a
+                href={company.socials.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram (@kazumaica)"
+                className="inline-flex items-center justify-center size-10 rounded-full border border-border hover:border-accent hover:text-accent transition-colors"
+              >
+                <InstagramIcon className="size-4" />
+              </a>
+            </div>
           </div>
 
           <div className="md:col-span-3">

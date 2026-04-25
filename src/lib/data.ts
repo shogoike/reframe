@@ -10,6 +10,9 @@ export const company = {
   address: "大阪府富田林市小金台4丁目13番14号",
   email: "k.sato@zumaica.com",
   business: ["SNS運用事業", "SNSコンサルティング", "Web制作事業"],
+  socials: {
+    instagram: "https://www.instagram.com/kazumaica/",
+  },
 };
 
 export const heroCopy = {
@@ -187,12 +190,21 @@ export const cases = [
   },
 ];
 
-export const team = [
+type TeamMember = {
+  name: string;
+  nameEn: string;
+  role: string;
+  bio: string;
+  instagram?: string;
+};
+
+export const team: TeamMember[] = [
   {
     name: "佐藤 和馬",
     nameEn: "Sato Kazuma",
     role: "代表取締役 / Founder & CEO",
     bio: "株式会社zumaica 代表。総フォロワー4万9,000人超、2024年SNSマーケティング売上4,500万円を達成。インバウンド・スポーツ・英語アカウントなど多領域で実績を持つ。",
+    instagram: "https://www.instagram.com/kazumaica/",
   },
   {
     name: "モクタリ 未来斗",
