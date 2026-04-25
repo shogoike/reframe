@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { company } from "@/lib/data";
+import { ArrowUpRight } from "lucide-react";
 
 export default function About() {
   return (
@@ -50,28 +51,18 @@ export default function About() {
               この3軸で、SNSを単なる発信チャネルから、ブランドを成長させる戦略資産へとリフレームします。
             </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8 border-t border-border">
-              <Info label="社名" value={company.legalName} />
-              <Info label="設立" value={company.founded} />
-              <Info label="代表" value={company.representative} />
-              <Info label="所在地" value={company.address} />
-              <Info label="お問い合わせ" value={company.email} />
-              <Info label="事業内容" value={company.business.join(" / ")} />
+            <div className="pt-4">
+              <Link
+                href="/company"
+                className="group inline-flex items-center gap-2 text-sm border-b border-border pb-2 hover:border-accent hover:text-accent transition-colors"
+              >
+                会社概要を詳しく見る
+                <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
             </div>
           </motion.div>
         </div>
       </div>
     </section>
-  );
-}
-
-function Info({ label, value }: { label: string; value: string }) {
-  return (
-    <div>
-      <div className="text-[10px] tracking-[0.2em] text-muted uppercase mb-1.5">
-        {label}
-      </div>
-      <div className="text-sm md:text-[15px] leading-relaxed">{value}</div>
-    </div>
   );
 }
