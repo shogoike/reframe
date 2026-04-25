@@ -1,0 +1,20 @@
+# Internal materials (do not commit)
+*.pdf
+reframe.txt
+reframe_utf8.txt
+FireShot*.png
+screenshots/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node / Next (mirrored from site/.gitignore but global safety net)
+node_modules/
+.next/
+out/
+dist/
+*.log
+.env*
+!.env.example
+.vercel
