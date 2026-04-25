@@ -11,13 +11,25 @@ export default function Hero() {
       id="top"
       className="relative min-h-screen flex items-end overflow-hidden pt-28 pb-16"
     >
-      {/* Background gradient mesh */}
+      {/* Hero background image + overlays */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-grid opacity-60" />
-        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-accent/30 blur-[140px] animate-pulse-glow" />
-        <div className="absolute top-40 -left-40 w-[500px] h-[500px] rounded-full bg-accent-2/20 blur-[140px] animate-pulse-glow" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] rounded-full bg-accent-3/10 blur-[120px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background" />
+        <Image
+          src="/images/hero/bg.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center opacity-80"
+        />
+        {/* Darken left for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
+        {/* Bottom fade into next section */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background" />
+        {/* Subtle grid overlay */}
+        <div className="absolute inset-0 bg-grid opacity-30" />
+        {/* Soft accent glows */}
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-accent/20 blur-[140px] animate-pulse-glow" />
+        <div className="absolute top-40 -left-40 w-[400px] h-[400px] rounded-full bg-accent-2/10 blur-[140px] animate-pulse-glow" />
       </div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-10 w-full relative z-10">
