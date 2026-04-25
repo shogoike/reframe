@@ -15,10 +15,10 @@ ChatGPT Image 2（gpt-image-1）に投げる前提のプロンプト集です。
 
 ## 配置先（生成後）
 
-生成画像は `site/public/images/` 以下に配置してください：
+生成画像は `public/images/` 以下に配置してください：
 
 ```
-site/public/images/
+public/images/
   og.png
   hero/hero-bg.jpg
   team/sato.jpg
