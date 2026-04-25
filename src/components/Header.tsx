@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navItems } from "@/lib/data";
 
-export default function Header() {
+export default function Header({ solid = false }: { solid?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -16,16 +16,19 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // For pages outside the home page, anchor links must be prefixed with "/"
+  const homePrefix = solid ? "/" : "";
+
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled
+        scrolled || solid
           ? "bg-background/70 backdrop-blur-xl border-b border-border"
           : "bg-transparent"
       }`}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 group">
+        <a href="/" className="flex items-center gap-2 group">
           <span className="font-display text-2xl tracking-tight">
             RE<span className="text-accent">:</span>FRAME
           </span>
@@ -35,7 +38,7 @@ export default function Header() {
           {navItems.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={`${homePrefix}${item.href}`}
               className="text-sm text-muted hover:text-foreground transition-colors"
             >
               {item.label}
@@ -45,7 +48,7 @@ export default function Header() {
 
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="#contact"
+            href={`${homePrefix}#contact`}
             className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-2 text-sm font-medium hover:bg-accent hover:text-foreground transition-colors"
           >
             無料相談
@@ -85,7 +88,7 @@ export default function Header() {
               {navItems.map((item) => (
                 <a
                   key={item.href}
-                  href={item.href}
+                  href={`${homePrefix}${item.href}`}
                   onClick={() => setOpen(false)}
                   className="text-3xl font-display tracking-tight py-3 border-b border-border"
                 >
@@ -93,7 +96,7 @@ export default function Header() {
                 </a>
               ))}
               <a
-                href="#contact"
+                href={`${homePrefix}#contact`}
                 onClick={() => setOpen(false)}
                 className="mt-6 inline-flex items-center justify-center rounded-full bg-foreground text-background px-6 py-3 font-medium"
               >
