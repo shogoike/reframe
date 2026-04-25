@@ -14,7 +14,7 @@ export default function Hero() {
       {/* Hero background image + overlays */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/images/hero/bg.png"
+          src="/images/hero/bg.jpg"
           alt=""
           fill
           priority
@@ -101,7 +101,7 @@ export default function Hero() {
 
             <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-border bg-surface">
               <Image
-                src="/images/hero/key-visual.png"
+                src="/images/hero/key-visual.jpg"
                 alt="RE:FRAME — TikTokを起点にビジネスをリフレームする"
                 fill
                 priority
