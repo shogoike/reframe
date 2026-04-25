@@ -6,6 +6,7 @@ reframe.txt
 reframe_utf8.txt
 FireShot*.png
 screenshots/
+docs/
 
 # dependencies
 /node_modules

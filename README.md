@@ -35,9 +35,7 @@
 │   │   └── Footer.tsx
 │   └── lib/
 │       └── data.ts          # 全セクションのコピー・データ
-├── public/                  # ロゴ・画像置き場
-└── docs/
-    └── prompts/             # ChatGPT Image 2 用 画像プロンプト集
+└── public/                  # ロゴ・画像置き場
 ```
 
 ## Local development
@@ -81,7 +79,7 @@ npm start
 
 ## Images
 
-実際の画像は未配置です。`docs/prompts/` に ChatGPT Image 2 用のプロンプトを用意しているので、生成後に `public/images/` 以下に配置してください。配置パスは `docs/prompts/README.md` 参照。
+実際の画像は未配置です。生成後に `public/images/` 以下に配置し、各セクションコンポーネントから `next/image` で読み込んでください。
 
 ## TODO（仮版から本番へ）
 
