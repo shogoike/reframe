@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { InstagramIcon } from "@/components/icons/InstagramIcon";
@@ -29,16 +30,37 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.7, delay: i * 0.12 }}
-              className="rounded-3xl border border-border bg-background overflow-hidden"
+              className="group/card rounded-3xl border border-border bg-background overflow-hidden hover:border-foreground/40 transition-colors"
             >
-              <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-accent/30 via-surface-2 to-accent-3/20">
-                <div className="absolute inset-0 bg-grid opacity-40" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-display text-[8rem] md:text-[10rem] text-foreground/10 leading-none tracking-tighter">
-                    {m.nameEn.split(" ").map((s) => s[0]).join("")}
-                  </span>
-                </div>
+              <div className="aspect-[4/3] relative overflow-hidden bg-surface-2">
+                {m.photo ? (
+                  <>
+                    <Image
+                      src={m.photo}
+                      alt={m.name}
+                      fill
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="object-cover scale-100 group-hover/card:scale-[1.04] transition-transform duration-700 ease-out"
+                    />
+                    {/* Subtle bottom gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                  </>
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-surface-2 to-accent-3/20">
+                    <div className="absolute inset-0 bg-grid opacity-40" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="font-display text-[8rem] md:text-[10rem] text-foreground/10 leading-none tracking-tighter">
+                        {m.nameEn.split(" ").map((s) => s[0]).join("")}
+                      </span>
+                    </div>
+                  </div>
+                )}
+                {/* Initials watermark in corner */}
+                <span className="absolute bottom-4 right-5 font-display text-2xl text-foreground/40 mix-blend-overlay tracking-tighter">
+                  {m.nameEn.split(" ").map((s) => s[0]).join("")}
+                </span>
               </div>
+
               <div className="p-8 md:p-10">
                 <div className="text-[10px] tracking-[0.3em] text-accent mb-3">
                   {m.role}

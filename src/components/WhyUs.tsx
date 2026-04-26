@@ -46,7 +46,12 @@ export default function WhyUs() {
               <h3 className="font-display text-2xl md:text-3xl mb-5 leading-tight">
                 {w.title}
               </h3>
-              <p className="text-sm text-muted leading-relaxed">{w.body}</p>
+              <p className="text-sm text-foreground/80 leading-relaxed mb-5">
+                {w.body}
+              </p>
+              <p className="text-xs text-accent leading-relaxed border-t border-border pt-4">
+                {w.diff}
+              </p>
             </motion.div>
           ))}
         </div>

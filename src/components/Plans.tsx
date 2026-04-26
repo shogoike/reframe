@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
-import { plans } from "@/lib/data";
+import { plans, plansLead, plansFooterNote } from "@/lib/data";
 
 export default function Plans() {
   return (
@@ -18,9 +18,8 @@ export default function Plans() {
           <h2 className="font-display text-5xl md:text-7xl leading-[0.95] tracking-tight mb-6">
             料金プラン
           </h2>
-          <p className="text-base text-muted leading-relaxed">
-            運用本数とサポート範囲で3プランをご用意。
-            年間契約特典や初期費用無料キャンペーンもございます。
+          <p className="text-base text-foreground/85 leading-relaxed">
+            {plansLead}
           </p>
         </div>
 
@@ -39,21 +38,24 @@ export default function Plans() {
               }`}
             >
               {p.highlight && (
-                <span className="absolute -top-3 right-8 inline-flex items-center rounded-full bg-accent text-foreground px-3 py-1 text-[11px] tracking-widest font-medium">
-                  RECOMMENDED
+                <span className="absolute -top-3 right-8 inline-flex items-center rounded-full bg-accent text-foreground px-3 py-1 text-[11px] tracking-widest font-bold">
+                  人気 / RECOMMENDED
                 </span>
               )}
 
-              <div
-                className={`text-[10px] tracking-[0.3em] mb-4 ${
-                  p.highlight ? "text-accent" : "text-accent"
-                }`}
-              >
+              <div className="text-[10px] tracking-[0.3em] text-accent mb-3">
                 {p.nameEn}
               </div>
-              <h3 className="font-display text-2xl tracking-tight mb-2">
+              <h3 className="font-display text-2xl tracking-tight">
                 {p.name}
               </h3>
+              <p
+                className={`text-sm mt-1.5 ${
+                  p.highlight ? "text-background/70" : "text-foreground/80"
+                }`}
+              >
+                {p.subtitle}
+              </p>
 
               <div className="flex items-baseline gap-1 mt-6">
                 <span className="font-display text-5xl md:text-6xl tracking-tight">
@@ -68,7 +70,7 @@ export default function Plans() {
                 {p.unit}
               </div>
               <div
-                className={`text-xs mt-3 ${
+                className={`text-xs mt-3 leading-relaxed ${
                   p.highlight ? "text-background/60" : "text-muted"
                 }`}
               >
@@ -77,14 +79,21 @@ export default function Plans() {
                 {p.contract}
               </div>
 
-              <ul className="mt-8 space-y-3 border-t border-current/10 pt-6 grow">
+              <div
+                className={`mt-6 px-3 py-2 rounded-lg text-[11px] ${
+                  p.highlight
+                    ? "bg-background/10 text-background/80"
+                    : "bg-surface-2 text-muted"
+                }`}
+              >
+                <span className="font-bold">対象：</span>
+                {p.target}
+              </div>
+
+              <ul className="mt-6 space-y-3 border-t border-current/10 pt-6 grow">
                 {p.features.map((f) => (
                   <li key={f} className="flex items-start gap-3 text-sm">
-                    <Check
-                      className={`size-4 shrink-0 mt-0.5 ${
-                        p.highlight ? "text-accent" : "text-accent"
-                      }`}
-                    />
+                    <Check className="size-4 shrink-0 mt-0.5 text-accent" />
                     <span className="leading-relaxed">{f}</span>
                   </li>
                 ))}
@@ -92,7 +101,7 @@ export default function Plans() {
 
               <a
                 href="#contact"
-                className={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-colors ${
+                className={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-bold transition-colors ${
                   p.highlight
                     ? "bg-accent text-foreground hover:opacity-90"
                     : "bg-foreground text-background hover:bg-accent hover:text-foreground"
@@ -104,8 +113,8 @@ export default function Plans() {
           ))}
         </div>
 
-        <p className="mt-10 text-center text-xs text-muted">
-          ※ 価格はすべて税抜き表示です。別途初期費用 10万円が発生します。
+        <p className="mt-10 text-center text-xs text-muted leading-relaxed max-w-2xl mx-auto">
+          {plansFooterNote}
         </p>
       </div>
     </section>
